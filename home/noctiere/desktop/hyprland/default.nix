@@ -9,6 +9,7 @@ in {
     ./config
     ./waybar.nix
     ./apps.nix
+    ./swaync.nix
   ];
 
   config = lib.mkIf (cfg.enable && cfg.hyprland.enable) {

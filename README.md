@@ -1,1 +1,2 @@
-# nix-config\nMy NixOs Flake
+# nix-config
+My NixOs Flake

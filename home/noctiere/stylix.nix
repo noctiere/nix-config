@@ -10,7 +10,8 @@
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 
-    image = ./wallpapers/foggy_valley_2.png;
+    image = ./wallpapers/bay.JPG;
+    # image = ./wallpapers/foggy_valley_2.png;
     # image = ./wallpapers/gruvbox_image31.png;
 
     cursor = {

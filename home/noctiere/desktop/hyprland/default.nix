@@ -9,7 +9,6 @@ in {
     ./config
     ./waybar.nix
     ./apps.nix
-    ./swaync.nix
   ];
 
   config = lib.mkIf (cfg.enable && cfg.hyprland.enable) {
@@ -24,6 +23,6 @@ in {
 
     programs.hyprlock.enable = true;
 
-    services.hyprsunset.enable = true;
+    # services.hyprsunset.enable = true;
   };
 }

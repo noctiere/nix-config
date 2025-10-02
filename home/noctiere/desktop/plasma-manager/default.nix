@@ -8,7 +8,7 @@
   cfg = osConfig.windowManager;
 in {
   imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.plasma-manager.homeModules.plasma-manager
   ];
 
   config = lib.mkIf (cfg.enable && cfg.plasma.enable) {

@@ -22,11 +22,6 @@ in {
         };
       };
 
-      # https://wiki.hyprland.org/Configuring/Variables/#gestures
-      gestures = {
-        workspace_swipe = "true";
-      };
-
       cursor = {
         "no_hardware_cursors" = "true";
       };

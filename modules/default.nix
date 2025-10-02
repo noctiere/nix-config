@@ -7,6 +7,7 @@
     ./fonts.nix
     ./nh.nix
     ./stylix.nix
+    ./cache.nix
   ];
 
   windowManager = {

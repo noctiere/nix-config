@@ -10,7 +10,7 @@ in {
       "$terminal" = "wezterm";
       "$fileManager" = "nautilus";
       "$menu" = "walker";
-      "$browser" = "firefox";
+      "$browser" = "floorp";
 
       "$mainMod" = "SUPER";
 

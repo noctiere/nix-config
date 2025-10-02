@@ -7,9 +7,13 @@
 in {
   config = lib.mkIf (cfg.enable && cfg.hyprland.enable) {
     wayland.windowManager.hyprland.settings = {
+      general = {
+        border_size = 2;
+      };
+
       decoration = {
-        # rounding = 5
-        # rounding_power = 2
+        rounding = 5;
+        rounding_power = 2;
 
         # Change transparency of focused and unfocused windows
         active_opacity = 0.95;
@@ -33,22 +37,30 @@ in {
 
       animations = {
         enabled = "yes";
-        bezier = [
-          "myBezier, 0.05, 0.9, 0.1, 1.05"
-          "wind, 0.05, 0.9, 0.1, 1.05"
-          "winIn, 0.1, 1.1, 0.1, 1.1"
-          "winOut, 0.3, -0.3, 0, 1"
-          "liner, 1, 1, 1, 1"
-        ];
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
         animation = [
-          "windows, 1, 6, wind, slide"
-          "windowsIn, 1, 6, winIn, slide"
-          "windowsOut, 1, 5, winOut, slide"
-          "windowsMove, 1, 5, wind, slide"
-          "border, 1, 1, liner"
-          "fade, 1, 10, default"
-          "workspaces, 1, 5, wind"
+          "windows, 1, 3, myBezier"
+          "windowsOut, 1, 4, default, popin 80%"
+          "border, 1, 5, default"
+          "fade, 1, 4, default"
+          "workspaces, 1, 3, default"
         ];
+        # bezier = [
+        #   "myBezier, 0.05, 0.9, 0.1, 1.05"
+        #   "wind, 0.05, 0.9, 0.1, 1.05"
+        #   "winIn, 0.1, 1.1, 0.1, 1.1"
+        #   "winOut, 0.3, -0.3, 0, 1"
+        #   "liner, 1, 1, 1, 1"
+        # ];
+        # animation = [
+        #   "windows, 1, 6, wind, slide"
+        #   "windowsIn, 1, 6, winIn, slide"
+        #   "windowsOut, 1, 5, winOut, slide"
+        #   "windowsMove, 1, 5, wind, slide"
+        #   "border, 1, 1, liner"
+        #   "fade, 1, 10, default"
+        #   "workspaces, 1, 5, wind"
+        # ];
       };
     };
   };

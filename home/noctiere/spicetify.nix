@@ -10,8 +10,8 @@
      spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
    in {
      enable = true;
-     theme = spicePkgs.themes.dribbblish;
-     colorScheme = "rosepine";
+     # theme = spicePkgs.themes.dribbblish;
+     # colorScheme = "rosepine";
      enabledCustomApps = with spicePkgs.apps; [
        # newReleases
        lyricsPlus

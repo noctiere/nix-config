@@ -6,7 +6,7 @@
   };
 
   home = {
-    file.".config/wezterm/wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/wezterm.lua";
+    file.".config/wezterm/wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/wezterm/wezterm.lua";
     sessionVariables = {
       TERMINAL = "wezterm";
     };

@@ -1,9 +1,11 @@
 {
+  config,
   osConfig,
   lib,
   ...
 }: let
-  cfg = osConfig.modules.wm;
+  osCfg = osConfig.modules.wm;
+  cfg = config.hmModules.wm.hypr.land;
 in {
   imports = [
     ./config
@@ -12,7 +14,9 @@ in {
     ./hyprsunset.nix
   ];
 
-  config = lib.mkIf (cfg.enable && cfg.hyprland.enable) {
+  options.hmModules.wm.hypr.land.enable = lib.mkEnableOption "Whether to enable hyprland home-manager module";
+
+  config = lib.mkIf (osCfg.enable && osCfg.hyprland.enable && cfg.enable) {
     wayland.windowManager.hyprland = {
       enable = true;
       # set the Hyprland and XDPH packages to null to use the ones from the NixOS module

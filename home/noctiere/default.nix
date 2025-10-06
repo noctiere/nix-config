@@ -1,8 +1,4 @@
 {
-  pkgs,
-  myvars,
-  ...
-}: {
   imports = [
     ./desktop
     ./home.nix
@@ -14,5 +10,6 @@
     ./wezterm.nix
     ./shell.nix
     ./helix.nix
+    ./config.nix
   ];
 }

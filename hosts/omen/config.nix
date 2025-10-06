@@ -10,6 +10,11 @@
         colorScheme = "everforest-dark-hard";
       };
     };
+    nh = {
+      enable = true;
+      numOfGens = "5";
+      timeRange = "3d";
+    };
   };
 
   windowManager = {

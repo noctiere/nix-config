@@ -13,9 +13,9 @@
     wm = {
       enable = true;
       hyprland.enable = true;
-      gnome.enable = false;
-      cosmic.enable = false;
-      plasma.enable = false;
+      # gnome.enable = false;
+      # cosmic.enable = false;
+      # plasma.enable = false;
     };
     nh = {
       enable = true;

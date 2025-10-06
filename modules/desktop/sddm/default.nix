@@ -5,9 +5,9 @@
   ...
 }: let
   sddmTheme = import ./sddm-theme.nix {inherit pkgs;};
-  cfg = config.modules.wm;
+  cfg = config.modules.wm.hyprland;
 in {
-  config = lib.mkIf cfg.hyprland.enable {
+  config = lib.mkIf cfg.enable {
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;

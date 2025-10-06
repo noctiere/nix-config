@@ -4,11 +4,11 @@
   lib,
   ...
 }: let
-  cfg = config.modules.wm;
+  cfg = config.modules.wm.plasma;
 in {
   options.modules.wm.plasma.enable = lib.mkEnableOption "PLASMA";
 
-  config = lib.mkIf (cfg.enable && cfg.plasma.enable) {
+  config = lib.mkIf cfg.enable {
     # Enable the Plasma Desktop Environment.
     services = {
       displayManager.sddm = {

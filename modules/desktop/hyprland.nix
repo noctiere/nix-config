@@ -5,13 +5,13 @@
   lib,
   ...
 }: let
-  cfg = config.modules.wm;
+  cfg = config.modules.wm.hyprland;
 in {
   imports = [./sddm];
 
   options.modules.wm.hyprland.enable = lib.mkEnableOption "Whether to enable Hyprland, the dynamic tiling Wayland compositor that doesn’t sacrifice on its looks";
 
-  config = lib.mkIf (cfg.enable && cfg.hyprland.enable) {
+  config = lib.mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
       withUWSM = true;

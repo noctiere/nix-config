@@ -1,6 +1,6 @@
 {
   imports = [
-    ./desktop
+    ./wm
     ./home.nix
     ./spicetify.nix
     ./helix.nix

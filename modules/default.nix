@@ -1,6 +1,6 @@
 {
   imports = [
-    ./desktop
+    ./wm
     ./styles
     ./audio.nix
     ./shell.nix

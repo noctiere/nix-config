@@ -15,16 +15,10 @@
     inputs.home-manager.nixosModules.home-manager
 
     ./audio.nix
+    ./config.nix
     ./system.nix
     ../../modules
   ];
-
-  # Enabling custom modules
-  modules = {
-    styles = {
-      fonts.enable = true;
-    };
-  };
 
   # Install firefox.
   programs.firefox.enable = true;

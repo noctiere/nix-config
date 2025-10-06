@@ -1,22 +1,10 @@
 {
   pkgs,
-  myvars,
   inputs,
   ...
 }: {
-  # nix
-  documentation.nixos.enable = false;
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = "nix-command flakes";
-
   # dconf
   programs.dconf.enable = true;
-
-  # hardware accelerated graphics driver
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
 
   # external monitor
   hardware.i2c.enable = true;
@@ -31,9 +19,6 @@
 
   # bluetooth
   hardware.bluetooth.enable = true;
-
-  # network
-  networking.networkmanager.enable = true;
 
   # bootloader
   boot.loader = {

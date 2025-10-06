@@ -14,7 +14,6 @@
 
     inputs.home-manager.nixosModules.home-manager
 
-    ./audio.nix
     ./config.nix
     ./system.nix
     ../../modules

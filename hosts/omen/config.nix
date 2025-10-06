@@ -1,6 +1,7 @@
 {
   # Enabling custom modules
   modules = {
+    audio.enable = true;
     styles = {
       fonts.enable = true;
       theme = {
@@ -9,5 +10,13 @@
         colorScheme = "everforest-dark-hard";
       };
     };
+  };
+
+  windowManager = {
+    enable = true;
+    hyprland.enable = true;
+    gnome.enable = false;
+    cosmic.enable = false;
+    plasma.enable = false;
   };
 }

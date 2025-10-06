@@ -1,9 +1,6 @@
-{
-  myvars,
-  ...
-}: {
+{myvars, ...}: {
   nix.settings = {
-    trusted-users = ["noctiere"];
+    trusted-users = [myvars.username];
     substituters = [
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"

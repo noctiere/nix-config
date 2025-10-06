@@ -1,5 +1,5 @@
 {
-  # Enabling custom modules
+  # Enabling custom system modules
   modules = {
     audio.enable = true;
     styles = {
@@ -10,18 +10,17 @@
         colorScheme = "everforest-dark-hard";
       };
     };
+    wm = {
+      enable = true;
+      hyprland.enable = true;
+      gnome.enable = false;
+      cosmic.enable = false;
+      plasma.enable = false;
+    };
     nh = {
       enable = true;
       numOfGens = "5";
       timeRange = "3d";
     };
-  };
-
-  windowManager = {
-    enable = true;
-    hyprland.enable = true;
-    gnome.enable = false;
-    cosmic.enable = false;
-    plasma.enable = false;
   };
 }

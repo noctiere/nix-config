@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  cfg = osConfig.windowManager;
+  cfg = osConfig.modules.wm;
 in {
   config = lib.mkIf (cfg.enable && cfg.hyprland.enable) {
     wayland.windowManager.hyprland.settings = {

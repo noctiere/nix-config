@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  cfg = osConfig.windowManager;
+  cfg = osConfig.modules.wm;
 in {
   imports = [
     ./config

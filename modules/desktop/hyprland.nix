@@ -5,11 +5,11 @@
   lib,
   ...
 }: let
-  cfg = config.windowManager;
+  cfg = config.modules.wm;
 in {
   imports = [./sddm];
 
-  options.windowManager.hyprland.enable = lib.mkEnableOption "Hyprland";
+  options.modules.wm.hyprland.enable = lib.mkEnableOption "Whether to enable Hyprland, the dynamic tiling Wayland compositor that doesn’t sacrifice on its looks";
 
   config = lib.mkIf (cfg.enable && cfg.hyprland.enable) {
     programs.hyprland = {

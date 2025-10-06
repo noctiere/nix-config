@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  cfg = osConfig.windowManager;
+  cfg = osConfig.modules.wm;
 in {
   config = lib.mkIf (cfg.enable && cfg.gnome.enable) {
     programs.gnome-shell = {

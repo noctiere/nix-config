@@ -3,9 +3,9 @@
   lib,
   ...
 }: let
-  cfg = config.windowManager;
+  cfg = config.modules.wm;
 in {
-  options.windowManager.cosmic.enable = lib.mkEnableOption "COSMIC";
+  options.modules.wm.cosmic.enable = lib.mkEnableOption "COSMIC";
 
   config = lib.mkIf (cfg.enable && cfg.cosmic.enable) {
     # Enable the COSMIC Desktop Environment.

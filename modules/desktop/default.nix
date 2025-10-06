@@ -6,5 +6,5 @@
     ./plasma.nix
   ];
 
-  options.windowManager.enable = lib.mkEnableOption "Window Manager";
+  options.modules.wm.enable = lib.mkEnableOption "Enable Window Manager";
 }

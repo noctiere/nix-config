@@ -5,7 +5,7 @@
   ...
 }: let
   sddmTheme = import ./sddm-theme.nix {inherit pkgs;};
-  cfg = config.windowManager;
+  cfg = config.modules.wm;
 in {
   config = lib.mkIf cfg.hyprland.enable {
     services.displayManager.sddm = {

@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  cfg = osConfig.windowManager;
+  cfg = osConfig.modules.wm;
 in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager

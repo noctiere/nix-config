@@ -52,12 +52,9 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    myvars = {
-      username = "noctiere";
-      useremail = "potatoyear@gmail.com";
-      hostname = "omen";
-      stateVersion = "24.11";
-    };
+    inherit (inputs.nixpkgs) lib;
+    myvars = import ./vars { inherit lib; };
+    mylib = import ./lib { inherit lib; };
     systems = [
       "aarch64-linux"
       "aarch64-darwin"
@@ -67,16 +64,17 @@
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
     nixosConfigurations = {
       ${myvars.hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs myvars;};
+        specialArgs = {inherit inputs outputs myvars mylib;};
         modules = [
           ./hosts/${myvars.hostname}
           {networking.hostName = "${myvars.hostname}";}
         ];
       };
     };
+    
+    # Format the nix code in this flake
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
   };
 }

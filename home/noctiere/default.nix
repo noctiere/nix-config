@@ -18,7 +18,7 @@
   programs.home-manager.enable = true;
 
   home = {
-    username = myvars.username;
+    inherit (myvars) username;
     homeDirectory = "/home/${myvars.username}";
     packages = with pkgs; [
       fastfetch
@@ -27,6 +27,6 @@
       btop
       gimp3
     ];
-    stateVersion = myvars.stateVersion;
+    stateVersion = "24.11";
   };
 }

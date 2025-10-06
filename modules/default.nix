@@ -1,12 +1,11 @@
 {
   imports = [
     ./desktop
+    ./styles
     ./shell.nix
     ./locale.nix
     ./openssh.nix
-    ./fonts.nix
     ./nh.nix
-    ./stylix.nix
     ./cache.nix
   ];
 

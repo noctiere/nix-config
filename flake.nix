@@ -7,13 +7,18 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
+    alejandra = {
+      url = "github:kamadorueda/alejandra/4.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-    
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -24,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,9 +42,12 @@
     self,
     nixpkgs,
     nixos-hardware,
-    stylix,
+    alejandra,
     home-manager,
+    hyprland,
+    hyprland-plugins,
     plasma-manager,
+    stylix,
     spicetify,
     ...
   } @ inputs: let

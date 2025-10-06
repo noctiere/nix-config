@@ -1,12 +1,14 @@
 {
   inputs,
-  pkgs,
   myvars,
+  pkgs,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    # Include community presets
     inputs.nixos-hardware.nixosModules.omen-16-n0280nd
     inputs.nixos-hardware.nixosModules.common-gpu-amd
 
@@ -16,6 +18,13 @@
     ./system.nix
     ../../modules
   ];
+
+  # Enabling custom modules
+  modules = {
+    styles = {
+      fonts.enable = true;
+    };
+  };
 
   # Install firefox.
   programs.firefox.enable = true;

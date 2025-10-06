@@ -32,7 +32,7 @@
   programs.oh-my-posh = {
     enable = true;
     enableBashIntegration = true;
-    useTheme = "powerlevel10k_rainbow";
+    useTheme = "star";
   };
 
   # programs.starship = {

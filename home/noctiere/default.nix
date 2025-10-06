@@ -1,5 +1,7 @@
 {
   imports = [
+    ../common
+    
     ./wm
     ./home.nix
     ./stylix.nix

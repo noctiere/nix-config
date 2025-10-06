@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption;
+  inherit (lib) mkEnableOption mkOption;
 in {
   imports = [
     ./fonts.nix
@@ -11,12 +11,12 @@ in {
   ];
 
   options.modules.styles.theme = {
-    polarity = lib.mkOption {
+    polarity = mkOption {
       type = lib.types.str;
       default = "dark";
       description = "System color scheme polarity to use";
     };
-    colorScheme = lib.mkOption {
+    colorScheme = mkOption {
       type = lib.types.str;
       default = "rose-pine";
       description = "System color scheme to use";

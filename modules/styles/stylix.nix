@@ -17,10 +17,6 @@ in {
       enable = true;
       polarity = cfg.polarity;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.colorScheme}.yaml";
-      # base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
-      # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-      # base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-      # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     };
   };
 }

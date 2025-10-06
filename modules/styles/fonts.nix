@@ -4,14 +4,12 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.styles.fonts;
 in {
-  options.modules.styles.fonts = {
-    enable = mkEnableOption "Enable fonts (nerd + emoji)";
-  };
+  options.modules.styles.fonts.enable = mkEnableOption "Enable fonts (nerd + emoji)";
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     fonts.packages = with pkgs; [
       nerd-fonts.hack
       nerd-fonts.fira-code

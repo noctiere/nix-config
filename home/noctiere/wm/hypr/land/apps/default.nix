@@ -7,6 +7,8 @@
   cfg = osConfig.modules.wm;
 in {
   imports = [
+    ./mako.nix
+    ./swayosd.nix
     ./waybar.nix
   ];
 

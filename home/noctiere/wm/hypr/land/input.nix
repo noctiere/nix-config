@@ -12,10 +12,10 @@ in {
         kb_layout = "us,ru";
         # kb_variant =
         # kb_model =
-        kb_options = "grp:win_space_toggle";
+        kb_options = "grp:lalt_lshift_toggle";
         # kb_rules =
-        follow_mouse = "1";
-        sensitivity = "0"; # -1.0 - 1.0, 0 means no modification.
+        # follow_mouse = "1";
+        sensitivity = 0.25; # -1.0 - 1.0, 0 means no modification.
         touchpad = {
           natural_scroll = "true";
           scroll_factor = 0.2;
@@ -29,6 +29,10 @@ in {
       general = {
         "resize_on_border" = "true";
       };
+
+      # Enable touchpad gestures for changing workspaces
+      # See https://wiki.hyprland.org/Configuring/Gestures/
+      gesture = "3, horizontal, workspace";
     };
   };
 }

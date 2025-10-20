@@ -11,12 +11,23 @@ in {
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "${sddmTheme}";
+
+      # theme = "${sddmTheme}";
+      theme = "sddm-astronaut-theme";
+      # extraPackages = with pkgs; [
+      #   sddm-astronaut
+      # ];
     };
 
+    qt.enable = true;
+
     environment.systemPackages = with pkgs; [
-      libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qt5.qtgraphicaleffects
+      # For ./sddm-theme
+      # libsForQt5.qt5.qtquickcontrols2
+      # libsForQt5.qt5.qtgraphicaleffects
+
+      sddm-astronaut
+      kdePackages.qtmultimedia
     ];
   };
 }

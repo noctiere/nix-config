@@ -1,9 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  inherit (lib) mkEnableOption mkOption;
+{lib, ...}: let
+  inherit (lib) mkOption;
 in {
   imports = [
     ./fonts.nix

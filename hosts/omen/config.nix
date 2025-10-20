@@ -7,7 +7,7 @@
       theme = {
         stylix.enable = true;
         polarity = "dark";
-        colorScheme = "everforest-dark-hard";
+        colorScheme = "kanagawa-dragon";
       };
     };
     wm = {

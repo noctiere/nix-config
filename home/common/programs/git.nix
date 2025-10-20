@@ -1,9 +1,11 @@
 {myvars, ...}: {
   programs.git = {
     enable = true;
-    userName = myvars.username;
-    userEmail = myvars.useremail;
-    extraConfig = {
+    settings = {
+        user = {
+        name = myvars.username;
+        email = myvars.useremail;
+      };
       init.defaultBranch = "main";
     };
   };

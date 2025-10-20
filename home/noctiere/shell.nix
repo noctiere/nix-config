@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   programs.zsh = {
@@ -33,6 +34,16 @@
     enable = true;
     enableBashIntegration = true;
     useTheme = "star";
+  };
+
+  # lsd(eluxe) - better ls
+  home = {
+    packages = with pkgs; [ lsd ];
+    shellAliases = {
+      ls = "lsd -A";
+      ll = "lsd -l --group-directories-first";
+      la = "lsd -lA --group-directories-first";
+    };
   };
 
   # programs.starship = {

@@ -9,8 +9,8 @@ in {
     wayland.windowManager.hyprland.settings = {
       "$terminal" = "wezterm";
       "$fileManager" = "nautilus";
-      "$menu" = "walker";
-      "$browser" = "floorp";
+      "$menu" = "hyprlauncher";
+      "$browser" = "firefox";
 
       "$mainMod" = "SUPER";
 

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -53,7 +53,6 @@
   } @ inputs: let
     inherit (self) outputs;
     inherit (inputs.nixpkgs) lib;
-    myvars = import ./vars { inherit lib; };
     mylib = import ./lib { inherit lib; };
     systems = [
       "aarch64-linux"
@@ -65,11 +64,13 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
     nixosConfigurations = {
-      ${myvars.hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs myvars mylib;};
+      omen = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs mylib;
+          vars.hostname = "omen";
+        };
         modules = [
-          ./hosts/${myvars.hostname}
-          {networking.hostName = "${myvars.hostname}";}
+          ./hosts/omen
         ];
       };
     };

@@ -31,7 +31,7 @@ in {
         size = 18;
       };
 
-      iconTheme = {
+      icons = {
         enable = true;
 
         # Rose Pine

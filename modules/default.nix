@@ -3,10 +3,11 @@
     ./wm
     ./styles
     ./audio.nix
-    ./shell.nix
-    ./locale.nix
-    ./openssh.nix
-    ./nh.nix
     ./cache.nix
+    ./locale.nix
+    ./networking.nix
+    ./nh.nix
+    ./openssh.nix
+    ./shell.nix
   ];
 }

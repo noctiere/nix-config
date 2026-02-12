@@ -16,13 +16,14 @@ in {
     home.packages = with pkgs; [
       overskride
       networkmanagerapplet
-      walker
+      # walker
+      hyprlauncher
     ];
-    
-    wayland.windowManager.hyprland.settings = {
-      exec-once = [
-        "walker --gapplication-service"
-      ];  
-    };
+
+    # wayland.windowManager.hyprland.settings = {
+    #   exec-once = [
+    #     "walker --gapplication-service"
+    #   ];
+    # };
   };
 }

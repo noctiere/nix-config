@@ -1,6 +1,6 @@
-{
+{ vars, ... }: {
   imports = [
-    ./users.nix
+    ./users
     ./home.nix
 
     ../../modules
@@ -16,6 +16,7 @@
   programs.firefox.enable = true;
 
   # network
+  networking.hostName = vars.hostname;
   networking.networkmanager.enable = true;
 
   # nix

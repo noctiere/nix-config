@@ -9,7 +9,7 @@
    programs.spicetify = let
      spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
    in {
-     enable = true;
+     enable = false;
      # theme = spicePkgs.themes.dribbblish;
      # colorScheme = "rosepine";
      enabledCustomApps = with spicePkgs.apps; [

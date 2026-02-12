@@ -1,4 +1,21 @@
 {
+  imports = [
+    ../common
+    
+    ./wm
+    ./stylix.nix
+    ./wezterm.nix
+    ./shell.nix
+  ];
+  
+  programs.home-manager.enable = true;
+
+  home = {
+    username = "noctiere";
+    homeDirectory = "/home/noctiere";
+    stateVersion = "25.11";
+  };
+
   hmModules = {
     wm = {
       hypr = {

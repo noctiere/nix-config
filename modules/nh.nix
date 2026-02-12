@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  myvars,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf mkOption;
@@ -50,7 +49,7 @@ in {
         #         Pass --max to nix store gc
         # -h, --help
         #         Print help
-      flake = "/home/${myvars.username}/nix-config";
+      flake = "/home/noctiere/nix-config";
     };
   };
 }

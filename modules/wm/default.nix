@@ -1,8 +1,10 @@
 {lib, ...}: {
   imports = [
-    ./hyprland.nix
-    ./gnome.nix
     ./cosmic.nix
+    ./gnome.nix
+    ./hyprland.nix
+    ./mangowc.nix
+    ./niri.nix
     ./plasma.nix
   ];
 

@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mangowc = {
+      url = "github:DreamMaoMao/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     hyprland-plugins = {
@@ -44,6 +49,7 @@
     nixos-hardware,
     alejandra,
     home-manager,
+    mangowc,
     hyprland,
     hyprland-plugins,
     plasma-manager,
@@ -53,7 +59,7 @@
   } @ inputs: let
     inherit (self) outputs;
     inherit (inputs.nixpkgs) lib;
-    mylib = import ./lib { inherit lib; };
+    mylib = import ./lib {inherit lib;};
     systems = [
       "aarch64-linux"
       "aarch64-darwin"
@@ -74,7 +80,7 @@
         ];
       };
     };
-    
+
     # Format the nix code in this flake
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
   };

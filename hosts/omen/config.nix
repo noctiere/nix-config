@@ -12,10 +12,12 @@
     };
     wm = {
       enable = true;
-      hyprland.enable = true;
-      # gnome.enable = false;
-      # cosmic.enable = false;
-      # plasma.enable = false;
+      niri.enable = true;
+      # mangowc.enable = true;
+      # hyprland.enable = true;
+      # gnome.enable = true;
+      # cosmic.enable = true;
+      # plasma.enable = true;
     };
     nh = {
       enable = true;

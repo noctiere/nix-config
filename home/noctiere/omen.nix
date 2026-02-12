@@ -18,9 +18,10 @@
 
   hmModules = {
     wm = {
-      hypr = {
-        land.enable = true;
-      };
+      # hypr = {
+      #   land.enable = true;
+      # };
+      niri.enable = true;
     };
     stylix = {
       enable = true;

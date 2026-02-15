@@ -1,0 +1,33 @@
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.theme;
+in {
+  imports = [inputs.stylix.nixosModules.stylix];
+
+  options.modules.theme = {
+    stylix.enable = lib.mkEnableOption "Enable Stylix";
+    polarity = lib.mkOption {
+      type = lib.types.str;
+      default = "dark";
+      description = "System color scheme polarity to use";
+    };
+    colorScheme = lib.mkOption {
+      type = lib.types.str;
+      default = "rose-pine";
+      description = "System color scheme to use";
+    };
+  };
+
+  config = lib.mkIf cfg.stylix.enable {
+    stylix = {
+      enable = true;
+      polarity = cfg.polarity;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.colorScheme}.yaml";
+    };
+  };
+}

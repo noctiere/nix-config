@@ -60,6 +60,7 @@
     inherit (self) outputs;
     inherit (inputs.nixpkgs) lib;
     mylib = import ./lib {inherit lib;};
+    myvars = import ./vars {inherit lib mylib;};
     systems = [
       "aarch64-linux"
       "aarch64-darwin"
@@ -73,11 +74,9 @@
       omen = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs mylib;
-          vars.hostname = "omen";
+          myvars = myvars // {hostName = "omen";};
         };
-        modules = [
-          ./hosts/omen
-        ];
+        modules = [./hosts/omen];
       };
     };
 

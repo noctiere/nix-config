@@ -14,7 +14,7 @@
 
   modules.users = {
     noctiere = {
-      trusted-user = true;
+      super-user = true;
     };
     marie = {};
   };

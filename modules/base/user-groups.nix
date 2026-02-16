@@ -20,10 +20,10 @@
         default = myvars.users.${name}.userfullname or "";
         description = "User's full name";
       };
-      trusted-user = lib.mkOption {
+      super-user = lib.mkOption {
         type = lib.types.bool;
         default = name == "noctiere";
-        description = "Whether to add this user to trusted-users";
+        description = "Whether to add this user to super-users";
       };
     };
   };

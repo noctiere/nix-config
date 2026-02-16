@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   osConfig,
   lib,
   ...
@@ -10,8 +11,14 @@ in {
   options.hmModules.desktop.wm.mangowc.enable = lib.mkEnableOption "Whether to enable mangowc home-manager module";
 
   config = lib.mkIf (osCfg.enable && cfg.enable) {
+    home.file.".config/mango".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/mango";
+
     # programs.waybar.enable = true;
     # home.file.".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ./waybar;
-    home.file.".config/mango".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/mango";
+
+    services.walker.enable = true;
+    home.packages = with pkgs; [
+      elephant
+    ];
   };
 }

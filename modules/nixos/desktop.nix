@@ -1,5 +1,5 @@
 {
-  # pkgs,
+  pkgs,
   # config,
   # lib,
   # myvars,
@@ -34,14 +34,19 @@
         bluetooth.enable = true;
         wm = {
           # niri.enable = true;
-          mangowc.enable = true;
-          # hypr.enable = true;
+          # mangowc.enable = true;
+          hypr.enable = true;
           # gnome.enable = true;
           # cosmic.enable = true;
           # plasma.enable = true;
         };
       };
     };
+
+    hardware.i2c.enable = true;
+    environment.systemPackages = with pkgs; [
+      ddcutil
+    ];
   };
 
   # config = lib.mkMerge [

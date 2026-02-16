@@ -1,4 +1,8 @@
-{
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    jq # Lightweight and flexible command-line JSON processor
+  ];
+
   # replacement of htop/nmon
   programs.btop = {
     enable = true;

@@ -5,7 +5,7 @@
   ...
 }: let
   osCfg = osConfig.modules.desktop.wm.hypr;
-  cfg = config.hmModules.desktop.wm.hypr.land;
+  cfg = config.hmModules.desktop.wm.hypr;
 in {
   config = lib.mkIf (osCfg.enable && cfg.enable) {
     services.mako = {

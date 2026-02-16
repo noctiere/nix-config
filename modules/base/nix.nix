@@ -3,8 +3,8 @@
   lib,
   ...
 }: let
-  # Filter the attribute set to only include users with trusted-user = true
-  trustedUserAttrs = lib.filterAttrs (name: user: user.trusted-user) config.modules.users;
+  # Filter the attribute set to only include users with super-user = true
+  trustedUserAttrs = lib.filterAttrs (name: user: user.super-user) config.modules.users;
 
   # Extract just the 'username' string from those filtered users into a list
   trustedUserList = lib.mapAttrsToList (name: user: user.username) trustedUserAttrs;

@@ -14,15 +14,17 @@
         editors = {
           zed-editor.enable = true;
         };
+        launchers.walker.enable = true;
         terminal.wezterm.enable = true;
         browsers.firefox.enable = true;
       };
       wm = {
-        # hypr = {
-        #   land.enable = true;
-        # };
+        hypr = {
+          enable = true;
+          # sunset.enable = true;
+        };
         # niri.enable = true;
-        mangowc.enable = true;
+        # mangowc.enable = true;
       };
     };
 

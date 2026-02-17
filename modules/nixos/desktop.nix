@@ -12,6 +12,7 @@
     # modules for NixOS system
     ./base
     ./desktop
+    ./gui
     ./theme
   ];
 
@@ -33,15 +34,18 @@
         colorScheme = "kanagawa-dragon";
       };
       desktop = {
+        gaming.enable = true;
         peripherals = {
           audio.enable = true;
           bluetooth.enable = true;
           # printing.enable = true;
         };
+      };
+      gui = {
         wm = {
           # niri.enable = true;
-          # mangowc.enable = true;
-          hypr.enable = true;
+          # mangowc.enable = true; # with tuigreet
+          hypr.enable = true; # with tuigreet
           # gnome.enable = true;
           # cosmic.enable = true;
           # plasma.enable = true;

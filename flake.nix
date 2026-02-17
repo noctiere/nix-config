@@ -41,6 +41,11 @@
     };
 
     spicetify.url = "github:Gerg-L/spicetify-nix";
+
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -55,6 +60,7 @@
     plasma-manager,
     stylix,
     spicetify,
+    nix-gaming,
     ...
   } @ inputs: let
     inherit (self) outputs;

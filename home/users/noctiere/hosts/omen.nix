@@ -9,15 +9,13 @@
     ];
 
   hmModules = {
-    desktop = {
-      gui = {
-        editors = {
-          zed-editor.enable = true;
-        };
-        launchers.walker.enable = true;
-        terminal.wezterm.enable = true;
-        browsers.firefox.enable = true;
+    gui = {
+      browsers.firefox.enable = true;
+      editors = {
+        zed-editor.enable = true;
       };
+      launchers.walker.enable = true;
+      terminal.wezterm.enable = true;
       wm = {
         hypr = {
           enable = true;

@@ -11,11 +11,13 @@ in {
 
   options.modules.theme = {
     stylix.enable = lib.mkEnableOption "Enable Stylix";
+
     polarity = lib.mkOption {
       type = lib.types.str;
       default = "dark";
       description = "System color scheme polarity to use";
     };
+
     colorScheme = lib.mkOption {
       type = lib.types.str;
       default = "rose-pine";

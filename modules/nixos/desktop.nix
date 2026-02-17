@@ -24,7 +24,10 @@
         timeRange = "3d";
       };
       theme = {
-        fonts.enable = true;
+        fonts = {
+          enable = true;
+          # extraFontsPkgs = with pkgs; [];
+        };
         stylix.enable = true;
         polarity = "dark";
         colorScheme = "kanagawa-dragon";

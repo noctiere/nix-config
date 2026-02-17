@@ -5,6 +5,7 @@
       username = "noctiere";
       useremail = "potatoyear@gmail.com";
       userfullname = "Aleksey Tarakanov";
+      super-user = true;
     };
   };
 }

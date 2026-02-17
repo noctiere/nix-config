@@ -5,6 +5,7 @@
 }: let
   userSubmodule = {name, ...}: {
     options = {
+      inherit (myvars) initialHashedPassword;
       username = lib.mkOption {
         type = lib.types.str;
         default = name;
@@ -22,7 +23,7 @@
       };
       super-user = lib.mkOption {
         type = lib.types.bool;
-        default = name == "noctiere";
+        default = myvars.users.${name}.super-user or false;
         description = "Whether to add this user to super-users";
       };
     };
@@ -31,7 +32,12 @@ in {
   options.modules.users = lib.mkOption {
     type = lib.types.attrsOf (lib.types.submodule userSubmodule);
     default = {
-      noctiere = {};
+      noctiere = {
+        username = "noctiere";
+        useremail = "potatoyear@gmail.com";
+        userfullname = "Aleksey Tarakanov";
+        super-user = true;
+      };
     };
     description = "Attribute set of users and their metadata";
   };

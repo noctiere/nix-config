@@ -33,8 +33,11 @@
         colorScheme = "kanagawa-dragon";
       };
       desktop = {
-        audio.enable = true;
-        bluetooth.enable = true;
+        peripherals = {
+          audio.enable = true;
+          bluetooth.enable = true;
+          # printing.enable = true;
+        };
         wm = {
           # niri.enable = true;
           # mangowc.enable = true;

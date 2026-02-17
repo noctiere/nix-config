@@ -10,7 +10,7 @@ in {
     enable = lib.mkEnableOption "Enable fonts (nerd + emoji)";
 
     extraFontsPkgs = lib.mkOption {
-      type = lib.types.ListOf lib.types.package;
+      type = lib.types.listOf lib.types.package;
       default = [];
       description = "List of extra fonts packages to install";
     };

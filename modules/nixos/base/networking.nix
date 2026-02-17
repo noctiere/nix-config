@@ -5,7 +5,11 @@
 }: {
   networking = {
     inherit (myvars) hostName;
-    networkmanager.enable = true;
+    wireless.iwd.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
   };
 
   environment.systemPackages = with pkgs; [

@@ -24,6 +24,7 @@ in {
         nerd-fonts.fira-code
         nerd-fonts.fira-mono
         nerd-fonts.jetbrains-mono
+        nerd-fonts.caskaydia-cove
         font-awesome
         noto-fonts
         noto-fonts-cjk-sans

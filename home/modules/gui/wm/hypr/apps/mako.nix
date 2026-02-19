@@ -1,13 +1,11 @@
 {
-  config,
   osConfig,
   lib,
   ...
 }: let
   osCfg = osConfig.modules.gui.wm.hypr;
-  cfg = config.hmModules.gui.wm.hypr;
 in {
-  config = lib.mkIf (osCfg.enable && cfg.enable) {
+  config = lib.mkIf osCfg.enable {
     services.mako = {
       enable = true;
       extraConfig = ''

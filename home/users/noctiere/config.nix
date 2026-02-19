@@ -1,4 +1,9 @@
-{
+{mylib, ...}: {
+  imports = map mylib.relativeToRoot [
+    "home/base"
+    "home/modules"
+  ];
+
   hmModules = {
     gui = {
       browsers.firefox.enable = true;
@@ -7,22 +12,15 @@
           enable = true;
         };
       };
-      launchers.walker.enable = true;
       terminal.wezterm.enable = true;
-      wm = {
-        hypr = {
-          enable = true;
-          # sunset.enable = true;
-        };
-        # niri.enable = true;
-        # mangowc.enable = true;
-      };
+      # spicetify.enable = true;
     };
-
     theme = {
       stylix = {
         enable = true;
+        polarity = "dark";
         colorScheme = "kanagawa-dragon";
+        image = ./Wallpapers/bay.jpg;
       };
     };
   };

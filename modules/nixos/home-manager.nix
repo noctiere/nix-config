@@ -20,7 +20,7 @@ in {
       users =
         lib.mapAttrs (
           name: user: {
-            imports = map mylib.relativeToRoot ["home/users/${name}/hosts/${myvars.hostName}.nix"];
+            imports = map mylib.relativeToRoot ["home/users/${name}"];
             home = {
               username = name;
               homeDirectory = "/home/${name}";

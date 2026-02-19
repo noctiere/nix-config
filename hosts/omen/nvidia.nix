@@ -13,6 +13,8 @@
   hardware.nvidia = {
     dynamicBoost.enable = true;
     modesetting.enable = true;
+    powerManagement.enable = true;
+    open = true;
   };
 
   hardware.graphics = {

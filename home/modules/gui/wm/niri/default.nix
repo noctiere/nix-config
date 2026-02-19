@@ -6,11 +6,8 @@
   ...
 }: let
   osCfg = osConfig.modules.gui.wm.niri;
-  cfg = config.hmModules.gui.wm.niri;
 in {
-  options.hmModules.gui.wm.niri.enable = lib.mkEnableOption "Whether to enable niri home-manager module";
-
-  config = lib.mkIf (osCfg.enable && cfg.enable) {
+  config = lib.mkIf osCfg.enable {
     home.packages = with pkgs; [
       xwayland-satellite
     ];

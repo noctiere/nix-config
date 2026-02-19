@@ -29,6 +29,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,6 +62,7 @@
     mangowc,
     hyprland,
     hyprland-plugins,
+    noctalia,
     plasma-manager,
     stylix,
     spicetify,

@@ -1,14 +1,12 @@
 {
-  config,
   osConfig,
   pkgs,
   lib,
   ...
 }: let
   osCfg = osConfig.modules.gui.wm.gnome;
-  cfg = config.hmModules.gui.wm.gnome;
 in {
-  config = lib.mkIf (osCfg.enable && cfg.enable) {
+  config = lib.mkIf osCfg.enable {
     programs.gnome-shell = {
       enable = true;
       extensions = with pkgs.gnomeExtensions; [

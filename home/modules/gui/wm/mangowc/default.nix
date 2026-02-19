@@ -6,11 +6,8 @@
   ...
 }: let
   osCfg = osConfig.modules.gui.wm.mangowc;
-  cfg = config.hmModules.gui.wm.mangowc;
 in {
-  options.hmModules.gui.wm.mangowc.enable = lib.mkEnableOption "Whether to enable mangowc home-manager module";
-
-  config = lib.mkIf (osCfg.enable && cfg.enable) {
+  config = lib.mkIf osCfg.enable {
     home.file.".config/mango".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/mango";
 
     # programs.waybar.enable = true;

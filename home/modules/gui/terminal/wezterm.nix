@@ -10,6 +10,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    stylix.targets.wezterm.enable = false;
+
     programs.wezterm = {
       enable = true;
       enableZshIntegration = true;

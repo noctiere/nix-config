@@ -2,26 +2,15 @@
   config,
   osConfig,
   lib,
+  pkgs,
   ...
 }: let
   osCfg = osConfig.modules.gui.wm.hypr;
-  cfg = config.hmModules.gui.wm.hypr;
 in {
-  options.hmModules.gui.wm.hypr.enable = lib.mkEnableOption "Whether to enable hyprland home-manager module";
+  config = lib.mkIf osCfg.enable {
+    hmModules.gui.launchers.walker.enable = true;
 
-  config = lib.mkIf (osCfg.enable && cfg.enable) {
     home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/hypr";
-    stylix.targets = {
-      hyprland = {
-        enable = false;
-        colors.enable = false;
-        hyprpaper.enable = false;
-        image.enable = false;
-      };
-      hyprlock.enable = false;
-      hyprpanel.enable = false;
-      hyprpaper.enable = false;
-    };
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -33,5 +22,16 @@ in {
     };
 
     programs.hyprlock.enable = true;
+    home.packages = with pkgs; [
+      imagemagick
+    ];
+
+    services.hyprpaper.enable = true;
+
+    stylix.targets = {
+      hyprland.enable = false;
+      hyprlock.enable = false;
+      hyprpaper.enable = false;
+    };
   };
 }

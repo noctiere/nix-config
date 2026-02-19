@@ -15,6 +15,9 @@ in {
     services.tlp = {
       enable = true;
       # settings = {
+      # RUNTIME_PM_ON_AC = "on";
+      # Ensure the GPU PCIe port doesn't enter low power states
+      # PCIE_ASPM_ON_AC = "performance";
       #   CPU_SCALING_GOVERNOR_ON_AC = "performance";
       #   CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       #   CPU_ENERGY_PERF_POLICY_ON_AC = "performance";

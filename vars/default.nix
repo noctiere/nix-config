@@ -6,6 +6,9 @@
       useremail = "potatoyear@gmail.com";
       userfullname = "Aleksey Tarakanov";
       super-user = true;
+      sshAuthorizedKeys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP4HT3JvK0SE+x/gaR7v56YRnVMocPupAzXyrIrAOXPe noctiere@omen"
+      ];
     };
   };
 }

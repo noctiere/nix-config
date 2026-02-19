@@ -1,8 +1,11 @@
 {
   config,
   lib,
+  myvars,
   ...
-}: {
+}: let
+  username = config.home.username;
+in {
   # `programs.git` will generate the config file: ~/.config/git/config
   # to make git use this config file, `~/.gitconfig` should not exist!
   #
@@ -29,6 +32,16 @@
     enable = true;
     lfs.enable = true;
     settings = {
+      user = {
+        name = username;
+        email = myvars.users.${username}.useremail;
+      };
+      # replace https with ssh
+      url = {
+        "ssh://git@github.com/${username}" = {
+          insteadOf = "https://github.com/${username}";
+        };
+      };
       init.defaultBranch = "main";
       trim.bases = "develop,master,main"; # for git-trim
       push.autoSetupRemote = true;

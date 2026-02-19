@@ -22,8 +22,8 @@
     theme = {
       stylix = {
         enable = true;
+        colorScheme = "kanagawa-dragon";
       };
-      colorScheme = "kanagawa-dragon";
     };
   };
 }

@@ -12,13 +12,6 @@
     ]
     ++ map mylib.relativeToRoot ["modules/nixos/desktop.nix"];
 
-  modules.users = {
-    noctiere = {
-      super-user = true;
-    };
-    marie = {};
-  };
-
   # packages $ nix search wget
   environment.systemPackages = with pkgs; [
     inputs.alejandra.defaultPackage.${system}

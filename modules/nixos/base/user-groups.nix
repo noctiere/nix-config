@@ -7,18 +7,19 @@
   # Don't allow mutation of users outside the config.
   users.mutableUsers = false;
 
-  users.groups = {
-    #   "${myvars.username}" = { };
-    podman = {};
-    wireshark = {};
-    #   # for android platform tools's udev rules
-    #   adbusers = { };
-    #   dialout = { };
-    #   # for openocd (embedded system development)
-    #   plugdev = { };
-    #   # misc
-    #   uinput = { };
-  };
+  users.groups =
+    lib.mapAttrs (name: user: {}) myvars.users
+    // {
+      podman = {};
+      wireshark = {};
+      #   # for android platform tools's udev rules
+      #   adbusers = { };
+      #   dialout = { };
+      #   # for openocd (embedded system development)
+      #   plugdev = { };
+      #   # misc
+      #   uinput = { };
+    };
 
   users.users =
     # creating users from vars

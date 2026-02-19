@@ -1,23 +1,18 @@
-{
-  inputs,
-  pkgs,
-  mylib,
-  ...
-}: {
+{mylib, ...}: {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./nvidia.nix
     ]
-    ++ map mylib.relativeToRoot ["modules/nixos/desktop.nix"];
+    ++ map mylib.relativeToRoot [
+      "profiles"
+    ];
 
-  # packages $ nix search wget
-  environment.systemPackages = with pkgs; [
-    inputs.alejandra.defaultPackage.${system}
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    # wget
-  ];
+  profiles = {
+    desktop.enable = true;
+    laptop.enable = true;
+  };
 
   # bootloader
   boot.loader = {

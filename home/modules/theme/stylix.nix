@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  osCfg = osConfig.modules.theme;
+  osCfg = osConfig.modules.theme.stylix;
   cfg = config.hmModules.theme.stylix;
 in {
   options.hmModules.theme.stylix = {
@@ -22,7 +22,7 @@ in {
     };
   };
 
-  config = lib.mkIf (osCfg.stylix.enable && cfg.enable) {
+  config = lib.mkIf (osCfg.enable && cfg.enable) {
     stylix = {
       enable = true;
       inherit (osCfg) polarity;

@@ -4,8 +4,7 @@
   config,
   lib,
   ...
-}:
-with lib; let
+}: let
   cfg = config.modules.desktop.gaming;
 in {
   imports = [
@@ -16,13 +15,9 @@ in {
     # aagl.nixosModules.default
   ];
 
-  options.modules.desktop = {
-    gaming = {
-      enable = mkEnableOption "Install Game Suite(steam, lutris, etc)";
-    };
-  };
+  options.modules.desktop.gaming.enable = lib.mkEnableOption "Install Game Suite(steam, lutris, etc)";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # ==========================================================================
     # Gaming on Linux
     #

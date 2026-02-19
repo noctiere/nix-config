@@ -5,27 +5,29 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.theme;
+  cfg = config.modules.theme.stylix;
 in {
   imports = [inputs.stylix.nixosModules.stylix];
 
   options.modules.theme = {
-    stylix.enable = lib.mkEnableOption "Enable Stylix";
+    stylix = {
+      enable = lib.mkEnableOption "Enable Stylix";
 
-    polarity = lib.mkOption {
-      type = lib.types.str;
-      default = "dark";
-      description = "System color scheme polarity to use";
-    };
+      polarity = lib.mkOption {
+        type = lib.types.str;
+        default = "dark";
+        description = "System color scheme polarity to use";
+      };
 
-    colorScheme = lib.mkOption {
-      type = lib.types.str;
-      default = "rose-pine";
-      description = "System color scheme to use";
+      colorScheme = lib.mkOption {
+        type = lib.types.str;
+        default = "rose-pine";
+        description = "System color scheme to use";
+      };
     };
   };
 
-  config = lib.mkIf cfg.stylix.enable {
+  config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
       polarity = cfg.polarity;

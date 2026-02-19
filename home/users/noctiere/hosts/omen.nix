@@ -12,7 +12,9 @@
     gui = {
       browsers.firefox.enable = true;
       editors = {
-        zed-editor.enable = true;
+        zed-editor = {
+          enable = true;
+        };
       };
       launchers.walker.enable = true;
       terminal.wezterm.enable = true;

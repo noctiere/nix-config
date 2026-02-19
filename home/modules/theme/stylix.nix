@@ -10,9 +10,14 @@
 in {
   options.hmModules.theme.stylix = {
     enable = lib.mkEnableOption "Whether to enable Stylix home-manager module";
+    colorScheme = lib.mkOption {
+      type = lib.types.str;
+      default = "kanagawa-dragon";
+      description = "home-manager user's color scheme for Stylix";
+    };
     image = lib.mkOption {
       type = lib.types.path;
-      default = ./wallpapers/default.jpg;
+      default = "/home/${config.home.user}/Wallpapers/default.jpg";
       description = "Path to wallpapers";
     };
   };
@@ -22,7 +27,7 @@ in {
       enable = true;
       inherit (osCfg) polarity;
       inherit (cfg) image;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${osCfg.colorScheme}.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.colorScheme}.yaml";
 
       cursor = {
         name = "Bibata-Modern-Classic";

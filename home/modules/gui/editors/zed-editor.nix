@@ -11,7 +11,7 @@ in {
     extensions = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
-      description = "Array of conecated strings";
+      description = "Array of extensions to install";
     };
     fontFamily = lib.mkOption {
       type = lib.types.str;
@@ -26,53 +26,16 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    home.file.".config/zed".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/zed";
+    stylix.targets.zed.enable = false;
+
     programs.zed-editor = {
       enable = true;
-      extensions = ["nix"] ++ cfg.extensions;
+      extensions = ["nix" "git-firefly"] ++ cfg.extensions;
       extraPackages = with pkgs; [
         nil
         alejandra
       ];
-      userSettings = lib.mkForce {
-        languages = {
-          Nix = {
-            format_on_save = "on";
-            language_servers = [
-              "nil"
-              "!nixd"
-            ];
-            formatter = {
-              external = {
-                command = "alejandra";
-                arguments = [
-                  "--quiet"
-                  "--"
-                ];
-              };
-            };
-          };
-        };
-        features = {
-          copilot = false;
-        };
-        telemetry = {
-          metrics = false;
-        };
-        tabs = {
-          file_icons = true;
-          git_status = true;
-        };
-        vim_mode = true;
-        vim = {
-          use_smartcase_find = true;
-          use_multiline_find = true;
-          toggle_relative_line_numbers = true;
-        };
-        ui_font_size = cfg.fontSize;
-        ui_font_family = cfg.fontFamily;
-        buffer_font_size = cfg.fontSize;
-        buffer_font_family = "${cfg.fontFamily} Mono";
-      };
     };
   };
 }

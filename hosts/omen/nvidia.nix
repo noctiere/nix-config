@@ -9,7 +9,12 @@
   ];
 
   hardware.nvidia-container-toolkit.enable = true;
-  hardware.nvidia.modesetting.enable = true;
+
+  hardware.nvidia = {
+    dynamicBoost.enable = true;
+    modesetting.enable = true;
+  };
+
   hardware.graphics = {
     enable = true;
     # needed by nvidia-docker

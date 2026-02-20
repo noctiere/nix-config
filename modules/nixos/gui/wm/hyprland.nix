@@ -5,6 +5,8 @@
   lib,
   ...
 }: let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+
   cfg = config.modules.gui.wm.hypr;
 in {
   options.modules.gui.wm.hypr.enable = lib.mkEnableOption "Whether to enable Hyprland, the dynamic tiling Wayland compositor that doesn’t sacrifice on its looks";
@@ -15,6 +17,16 @@ in {
       # defaultSessionCmd = "uwsm start -e -D Hyprland hyprland.desktop";
     };
 
+    # If you start experiencing lag and FPS drops in games or programs like Blender on stable NixOS when using the Hyprland flake, it is most likely a mesa version mismatch between your system and Hyprland.
+    # You can fix this issue by using mesa from Hyprland’s nixpkgs input:
+    hardware.graphics = lib.mkForce {
+      package = pkgs-unstable.mesa;
+
+      # if you also want 32-bit support (e.g for Steam)
+      enable32Bit = true;
+      package32 = pkgs-unstable.pkgsi686Linux.mesa;
+    };
+
     programs.hyprland = {
       enable = true;
       withUWSM = true;
@@ -22,6 +34,12 @@ in {
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       # make sure to also set the portal package, so that they are in sync
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
+
+    nix.settings = {
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
 
     xdg.portal = {

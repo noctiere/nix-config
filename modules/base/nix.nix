@@ -10,7 +10,7 @@
   trustedUserList = lib.mapAttrsToList (name: user: user.username) trustedUserAttrs;
 in {
   # To install nvidia hardware drivers, you need to enable unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = lib.mkForce true;
 
   nix.settings = {
     # enable flakes globally

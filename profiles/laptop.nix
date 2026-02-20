@@ -11,9 +11,11 @@ in {
 
   config = lib.mkIf cfg.enable {
     # Power management
-    services.power-profiles-daemon.enable = lib.mkDefault false; # conflicts with tlp
+    # services.power-profiles-daemon.enable = lib.mkDefault false; # conflicts with tlp
+    # (works with hp-wmi)
+    services.power-profiles-daemon.enable = true; # conflicts with tlp
     services.tlp = {
-      enable = true;
+      enable = false;
       # settings = {
       # RUNTIME_PM_ON_AC = "on";
       # Ensure the GPU PCIe port doesn't enter low power states
@@ -30,7 +32,8 @@ in {
     };
 
     # Thermald for thermal management
-    services.thermald.enable = true;
+    # systemctl > unsupported cpu model or platform
+    services.thermald.enable = false;
 
     # Auto-cpufreq as alternative to tlp (pick one)
     # services.auto-cpufreq.enable = true;
@@ -58,6 +61,7 @@ in {
     environment.systemPackages = with pkgs; [
       powertop # Power consumption analysis
       acpi # Battery info CLI
+      power-profiles-daemon # for powerprofilesctl CLI
     ];
 
     # Better wifi power management

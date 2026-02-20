@@ -83,10 +83,10 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
     nixosConfigurations = {
-      omen = nixpkgs.lib.nixosSystem {
+      omen-nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs mylib;
-          myvars = myvars // {hostName = "omen";};
+          myvars = myvars // {hostName = "omen-nixos";};
         };
         modules = [./hosts/omen];
       };

@@ -13,7 +13,7 @@
         };
       };
       terminal.wezterm.enable = true;
-      # spicetify.enable = true;
+      spicetify.enable = true;
     };
     theme = {
       stylix = {

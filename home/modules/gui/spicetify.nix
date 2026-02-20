@@ -14,12 +14,17 @@ in {
   config = lib.mkIf cfg.enable {
     stylix.targets.spicetify.enable = false;
 
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "spotify"
+      ];
+
     programs.spicetify = let
-      spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
+      spicePkgs = inputs.spicetify.legacyPackages.${pkgs.stdenv.hostPlatform.system};
     in {
       enable = true;
-      # theme = spicePkgs.themes.dribbblish;
-      # colorScheme = "rosepine";
+      theme = spicePkgs.themes.dribbblish;
+      colorScheme = "kanagawa";
       enabledCustomApps = with spicePkgs.apps; [
         # newReleases
         lyricsPlus

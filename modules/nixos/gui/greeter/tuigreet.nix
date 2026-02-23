@@ -21,7 +21,7 @@ in {
       useTextGreeter = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time${
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --asterisks --window-padding 2${
             if (cfg.defaultSessionCmd != "")
             then " --cmd '${cfg.defaultSessionCmd}'"
             else ""

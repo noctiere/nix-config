@@ -20,11 +20,9 @@ in {
     fonts.packages =
       cfg.extraFontsPkgs
       ++ (with pkgs; [
-        nerd-fonts.hack
-        nerd-fonts.fira-code
-        nerd-fonts.fira-mono
         nerd-fonts.jetbrains-mono
         nerd-fonts.caskaydia-cove
+        nerd-fonts.iosevka
         font-awesome
         noto-fonts
         noto-fonts-cjk-sans

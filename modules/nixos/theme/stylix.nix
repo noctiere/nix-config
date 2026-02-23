@@ -21,7 +21,7 @@ in {
 
       colorScheme = lib.mkOption {
         type = lib.types.str;
-        default = "rose-pine";
+        default = "kanagawa-dragon";
         description = "System color scheme to use";
       };
     };

@@ -6,14 +6,7 @@
 }: let
   cfg = config.modules.gui.greeter.tuigreet;
 in {
-  options.modules.gui.greeter.tuigreet = {
-    enable = lib.mkEnableOption "Enable tuigreet - Graphical console greeter for greetd";
-    defaultSessionCmd = lib.mkOption {
-      default = "";
-      description = "command to run on system startup after login";
-      type = lib.types.str;
-    };
-  };
+  options.modules.gui.greeter.tuigreet.enable = lib.mkEnableOption "Enable tuigreet - Graphical console greeter for greetd";
 
   config = lib.mkIf cfg.enable {
     services.greetd = {
@@ -21,11 +14,7 @@ in {
       useTextGreeter = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --remember --remember-user-session --asterisks --window-padding 2${
-            if (cfg.defaultSessionCmd != "")
-            then " --cmd '${cfg.defaultSessionCmd}'"
-            else ""
-          }";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --remember --remember-user-session --asterisks --window-padding 2";
           user = "greeter";
         };
       };

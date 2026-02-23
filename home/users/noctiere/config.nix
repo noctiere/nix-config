@@ -15,6 +15,9 @@
       terminal.wezterm.enable = true;
       spicetify.enable = true;
     };
+    tui = {
+      spotifyd.enable = true;
+    };
     theme = {
       stylix = {
         enable = true;

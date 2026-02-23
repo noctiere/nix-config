@@ -1,11 +1,12 @@
 {
+  config,
   osConfig,
   lib,
   ...
 }: let
   osCfg = osConfig.modules.gui.wm.hypr;
 in {
-  config = lib.mkIf osCfg.enable {
+  config = lib.mkIf (osCfg.enable && !config.programs.noctalia-shell.enable) {
     services.hyprsunset = {
       enable = true;
       # settings = {

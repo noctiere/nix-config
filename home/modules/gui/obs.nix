@@ -4,9 +4,9 @@
   lib,
   ...
 }: let
-  cfg = config.modules.gui.obs;
+  cfg = config.hmModules.gui.obs;
 in {
-  options.modules.gui.obs.enable = lib.mkEnableOption "OBS";
+  options.hmModules.gui.obs.enable = lib.mkEnableOption "OBS";
 
   config = lib.mkIf cfg.enable {
     programs = {

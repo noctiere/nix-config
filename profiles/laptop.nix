@@ -27,15 +27,16 @@ in {
     # Battery notifications (via upower)
     services.upower = {
       enable = true;
-      criticalPowerAction = "Suspend";
-      percentageLow = 20;
-      percentageCritical = 10;
+      # services.upower.allowRiskyCriticalPowerAction must be true if services.upower.criticalPowerAction is set to 'Suspend'.
+      # criticalPowerAction = "Suspend";
+      # percentageLow = 20;
+      # percentageCritical = 10;
     };
 
     environment.systemPackages = with pkgs; [
       powertop # Power consumption analysis
       acpi # Battery info CLI
-      power-profiles-daemon # for powerprofilesctl CLI
+      sof-firmware # Sound Open Firmware for better audio support on some laptops
     ];
 
     # Better wifi power management

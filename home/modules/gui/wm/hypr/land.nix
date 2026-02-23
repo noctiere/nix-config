@@ -2,14 +2,11 @@
   config,
   osConfig,
   lib,
-  pkgs,
   ...
 }: let
   osCfg = osConfig.modules.gui.wm.hypr;
 in {
   config = lib.mkIf osCfg.enable {
-    hmModules.gui.launchers.walker.enable = true;
-
     home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/hypr";
 
     wayland.windowManager.hyprland = {
@@ -21,16 +18,10 @@ in {
       systemd.enable = false;
     };
 
-    programs.hyprlock.enable = true;
-    home.packages = with pkgs; [
-      imagemagick
-    ];
-
     services.hyprpaper.enable = true;
 
     stylix.targets = {
       hyprland.enable = false;
-      hyprlock.enable = false;
       hyprpaper.enable = false;
     };
   };

@@ -13,7 +13,9 @@
         };
       };
       terminal.wezterm.enable = true;
-      spicetify.enable = true;
+      media.enable = true;
+      obs.enable = true;
+      # spicetify.enable = true;
     };
     tui = {
       spotifyd.enable = true;

@@ -10,34 +10,6 @@ in {
   options.profiles.laptop.enable = lib.mkEnableOption "Enable laptop-specific configurations for power management, battery, and wifi";
 
   config = lib.mkIf cfg.enable {
-    # Power management
-    # services.power-profiles-daemon.enable = lib.mkDefault false; # conflicts with tlp
-    # (works with hp-wmi)
-    services.power-profiles-daemon.enable = true; # conflicts with tlp
-    services.tlp = {
-      enable = false;
-      # settings = {
-      # RUNTIME_PM_ON_AC = "on";
-      # Ensure the GPU PCIe port doesn't enter low power states
-      # PCIE_ASPM_ON_AC = "performance";
-      #   CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      #   CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      #   CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      #   CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-
-      #   # Battery charge thresholds (if supported)
-      #   START_CHARGE_THRESH_BAT0 = 40;
-      #   STOP_CHARGE_THRESH_BAT0 = 80;
-      # };
-    };
-
-    # Thermald for thermal management
-    # systemctl > unsupported cpu model or platform
-    services.thermald.enable = false;
-
-    # Auto-cpufreq as alternative to tlp (pick one)
-    # services.auto-cpufreq.enable = true;
-
     # Backlight control
     programs.light.enable = true;
 
@@ -45,15 +17,17 @@ in {
     services.logind = {
       settings.Login = {
         HandleLidSwitch = "suspend";
-        HandleLidSwitchExternalPower = "ignore";
+        HandleLidSwitchExternalPower = "suspend";
+        HandleLidSwitchDocked = "ignore";
         HandlePowerKey = "suspend";
+        HandlePowerKeyLongPress = "poweroff";
       };
     };
 
     # Battery notifications (via upower)
     services.upower = {
       enable = true;
-      criticalPowerAction = "Hibernate";
+      criticalPowerAction = "Suspend";
       percentageLow = 20;
       percentageCritical = 10;
     };

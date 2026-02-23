@@ -18,6 +18,7 @@ in {
           monitors.enable = true;
         };
         gaming.enable = true;
+        power.enable = true;
         security.enable = true;
       };
       gui = {
